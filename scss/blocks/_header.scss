@@ -1,3 +1,6 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
 .header {
   $root: &;
   padding: 20px 0 19px;

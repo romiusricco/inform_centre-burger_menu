@@ -1,12 +1,12 @@
 /* Global */
 /* ------------------------------------ */
-@import "global/_normalize";
-@import "global/_fonts";
-@import "global/_variables";
-@import "global/_mixins";
-@import "global/_reboot";
-@import "global/_container";
-@import "global/_visually-hidden";
+@use "global/normalize";
+@use "global/fonts";
+@use "global/variables";
+@use "global/mixins";
+@use "global/reboot";
+@use "global/container";
+@use "global/visually-hidden";
 
 /* Blocks */
 /* ------------------------------------ */
