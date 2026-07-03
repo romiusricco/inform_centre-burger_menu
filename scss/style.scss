@@ -10,4 +10,7 @@
 
 /* Blocks */
 /* ------------------------------------ */
-@import "blocks/_header";
+@use "blocks/header";
+@use "blocks/news-controls";
+
+
