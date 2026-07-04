@@ -59,9 +59,6 @@
       margin: 0 50px 0 0;
     }
 
-    @media (max-width: 1145px) {
-      margin: 0 40px 0 0;
-    }
 
     @include vp-1023 {
       width: 47px;
@@ -121,10 +118,6 @@
       line-height: 18px;
     }
 
-    @media (max-width: 1145px) {
-      font-size: 12px;
-      line-height: 16px;
-    }
 
     @include vp-1023 {
       display: none;
@@ -151,11 +144,6 @@
       gap: 20px;
     }
 
-    @media (max-width: 1145px) {
-      font-size: 12px;
-      line-height: 16px;
-      gap: 10px;
-    }
 
     @include vp-1023 {
       gap: 20px;
