@@ -346,7 +346,7 @@ body {
 
 main {
   flex-grow: 1;
-  padding: 80px 0 0;
+  padding: 280px 0 0;
 }
 @media (max-width: 1023px) {
   main {
@@ -398,15 +398,20 @@ a {
 
 /* Blocks */
 /* ------------------------------------ */
+.header-wrapper {
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: #ffffff;
+}
+
 .header {
   padding: 20px 0 27px;
   border-bottom: 1px solid #e2e2e2;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background-color: #ffffff;
-  z-index: 10;
+  position: relative;
 }
 @media (max-width: 1023px) {
   .header {
@@ -580,14 +585,9 @@ a {
 }
 
 .news-controls {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  background-color: #ffffff;
+  position: relative;
   width: 100%;
-  padding: 40px 221px 20px 180px;
+  padding: 30px 180px 20px 180px;
 }
 .news-controls::after {
   content: "";
@@ -608,7 +608,7 @@ a {
 @media (max-width: 1023px) {
   .news-controls {
     top: 60px;
-    padding: 16px 0;
+    padding: 16px 40px;
   }
 }
 @media (max-width: 767px) {

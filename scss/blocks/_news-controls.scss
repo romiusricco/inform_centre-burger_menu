@@ -2,14 +2,9 @@
 @use "../global/mixins" as *;
 
 .news-controls {
-    position: fixed;
-    top: 80px; // Высота header + небольшой запас
-    left: 0;
-    right: 0;
-    z-index: 5; // Ниже header (z-index: 10), но выше контента
-    background-color: $color-white; // Чтобы контент не просвечивал
+    position: relative;
     width: 100%;
-    padding: 40px 221px 20px 180px;
+    padding: 30px 180px 20px 180px;
 
     // Добавляем центрированную линию через псевдоэлемент
     &::after {
@@ -31,7 +26,7 @@
 
     @include vp-1023 {
         top: 60px; // Высота header + небольшой запас
-        padding: 16px 0;
+        padding: 16px 40px;
     }
 
     @include vp-767 {

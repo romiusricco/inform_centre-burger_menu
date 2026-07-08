@@ -5,12 +5,8 @@
   $root: &;
   padding: 20px 0 27px;
   border-bottom: 1px solid $color-gainsboro;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background-color: $color-white;
-  z-index: 10;
+  position: relative;
+
 
   @include vp-1023 {
     padding: 17px 0 16px;

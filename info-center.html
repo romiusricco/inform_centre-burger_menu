@@ -11,37 +11,36 @@
 
 <body>
 
-  <header class="header">
+  <div class="header-wrapper">
 
-    <div class="header__content">
-      <div class="header__left-col">
-        <button class="header__menu" type="button" aria-label="Переключатель меню">
-          <svg class="header__menu-icon" width="60" height="23" aria-hidden="true">
-            <use xlink:href="images/sprite.svg#icon-menu"></use>
-          </svg>
-        </button>
-        <a class="header__logo-link" href="#" aria-label="Переход на главную страницу">
-          <svg class="header__logo" width="114" height="26" aria-hidden="true">
-            <use xlink:href="images/sprite.svg#icon-header-logo"></use>
-          </svg>
-        </a>
+    <header class="header">
+
+      <div class="header__content">
+        <div class="header__left-col">
+          <button class="header__menu" type="button" aria-label="Переключатель меню">
+            <svg class="header__menu-icon" width="60" height="23" aria-hidden="true">
+              <use xlink:href="images/sprite.svg#icon-menu"></use>
+            </svg>
+          </button>
+          <a class="header__logo-link" href="#" aria-label="Переход на главную страницу">
+            <svg class="header__logo" width="114" height="26" aria-hidden="true">
+              <use xlink:href="images/sprite.svg#icon-header-logo"></use>
+            </svg>
+          </a>
+        </div>
+        <span class="header__page">Информационный центр</span>
+        <div class="header__right-col">
+          <a class="header__link" href="#">Выбрать недвижимость</a>
+          <a class="header__phone" href="tel:+74951851408" aria-label="Позвонить в компанию">
+            <span class="header__phone-text">+7 495 185 14 08</span>
+            <svg class="header__phone-icon" width="24" height="24" aria-hidden="true">
+              <use xlink:href="images/sprite.svg#icon-phone"></use>
+            </svg>
+          </a>
+        </div>
       </div>
-      <span class="header__page">Информационный центр</span>
-      <div class="header__right-col">
-        <a class="header__link" href="#">Выбрать недвижимость</a>
-        <a class="header__phone" href="tel:+74951851408" aria-label="Позвонить в компанию">
-          <span class="header__phone-text">+7 495 185 14 08</span>
-          <svg class="header__phone-icon" width="24" height="24" aria-hidden="true">
-            <use xlink:href="images/sprite.svg#icon-phone"></use>
-          </svg>
-        </a>
-      </div>
-    </div>
 
-  </header>
-
-  <main class="main">
-
+    </header>
 
     <section class="news-controls" aria-label="Управление отображением новостей">
 
@@ -126,6 +125,13 @@
       </div>
 
     </section>
+
+  </div>
+
+  <main class="main">
+
+
+
     <div class="container">
       <!-- Секция новостей -->
       <section class="news" aria-labelledby="news-heading">
