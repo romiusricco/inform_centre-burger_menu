@@ -2,16 +2,41 @@
 @use "../global/mixins" as *;
 
 .news-controls {
-    padding: 40px 0 20px 0;
-    border-bottom: 1px solid $color-iron;
+    position: fixed;
+    top: 80px; // Высота header + небольшой запас
+    left: 0;
+    right: 0;
+    z-index: 5; // Ниже header (z-index: 10), но выше контента
+    background-color: $color-white; // Чтобы контент не просвечивал
+    width: 100%;
+    padding: 40px 221px 20px 180px;
+
+    // Добавляем центрированную линию через псевдоэлемент
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1368px;
+        max-width: calc(100% - 80px); // Чтобы не вылезала на мобильных
+        height: 1px;
+        background-color: $color-iron;
+
+        @include vp-767 {
+            max-width: calc(100% - 32px); // 16px padding * 2
+        }
+    }
 
 
     @include vp-1023 {
+        top: 60px; // Высота header + небольшой запас
         padding: 16px 0;
     }
 
     @include vp-767 {
-        padding: 15px 0;
+        top: 50px; // Высота header + небольшой запас
+        padding: 15px 20px;
         // Выстраиваем навигацию и переключатель вида в одну строку
         display: flex;
         justify-content: space-between;
