@@ -17,6 +17,7 @@
         max-width: calc(100% - 80px); // Чтобы не вылезала на мобильных
         height: 1px;
         background-color: $color-iron;
+        margin: 0 auto;
 
         @include vp-767 {
             max-width: calc(100% - 32px); // 16px padding * 2
