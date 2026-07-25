@@ -1131,21 +1131,6 @@ a {
   overflow: hidden;
   width: 100%;
 }
-@media (min-width: 1515px) {
-  .news__list--grid .news__card-image-wrapper {
-    aspect-ratio: 674/360;
-  }
-}
-@media (max-width: 1023px) {
-  .news__list--grid .news__card-image-wrapper {
-    aspect-ratio: 360/200;
-  }
-}
-@media (max-width: 767px) {
-  .news__list--grid .news__card-image-wrapper {
-    height: 200px;
-  }
-}
 .news__list--grid .news__card-image-wrapper::after {
   content: "";
   position: absolute;
