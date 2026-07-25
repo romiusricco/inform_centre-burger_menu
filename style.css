@@ -420,7 +420,7 @@ a {
   gap: 20px;
   max-width: 1728px;
   margin: 0 auto;
-  padding: 0 45px;
+  padding: 0 20px;
 }
 @media (max-width: 1023px) {
   .header__content {
@@ -606,7 +606,7 @@ a {
 }
 @media (max-width: 1023px) {
   .news-controls {
-    padding: 16px 40px;
+    padding: 16px 20px;
   }
 }
 @media (max-width: 767px) {
@@ -814,23 +814,23 @@ a {
 }
 @media (min-width: 1085px) and (max-width: 1396px) {
   .news {
-    margin-top: 325px;
+    margin-top: 320px;
   }
 }
 @media (min-width: 1023px) and (max-width: 1084px) {
   .news {
-    margin-top: 370px;
+    margin-top: 360px;
   }
 }
 @media (max-width: 1023px) {
   .news {
-    margin-top: 160px;
+    margin-top: 130px;
     padding: 32px 40px 60px;
   }
 }
 @media (max-width: 767px) {
   .news {
-    margin-top: 120px;
+    margin-top: 90px;
     padding: 24px 16px 40px;
   }
 }
@@ -1088,13 +1088,14 @@ a {
 @media (min-width: 1515px) {
   .news__list--grid {
     grid-template-columns: repeat(2, 674px);
-    gap: 40px;
+    gap: 17px;
     padding: 40px 63px;
     justify-content: center;
   }
 }
 @media (min-width: 1728px) {
   .news__list--grid {
+    gap: 20px;
     padding: 40px 180px;
   }
 }
@@ -1138,6 +1139,11 @@ a {
 @media (max-width: 1023px) {
   .news__list--grid .news__card-image-wrapper {
     aspect-ratio: 360/200;
+  }
+}
+@media (max-width: 767px) {
+  .news__list--grid .news__card-image-wrapper {
+    height: 200px;
   }
 }
 .news__list--grid .news__card-image-wrapper::after {
