@@ -276,8 +276,7 @@
   .burger-menu__content {
     grid-template-columns: 1fr 1fr;
     row-gap: 125px;
-    -moz-column-gap: 40px;
-         column-gap: 40px;
+    column-gap: 40px;
     padding: 20px 80px;
   }
   .burger-menu__content__nav--main {
@@ -310,6 +309,40 @@
   .burger-menu__content__nav--secondary {
     order: 3;
   }
+  .burger-menu__content__bottom-action {
+    order: 4;
+    display: block;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444D56;
+  }
+}
+.burger-menu__bottom-action {
+  display: none;
+}
+@media (max-width: 767px) {
+  .burger-menu__bottom-action {
+    display: block;
+  }
+}
+.burger-menu__bottom-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.burger-menu__bottom-link svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+}
+.burger-menu__bottom-link:hover {
+  color: #d6d2c4;
 }
 .burger-menu__nav {
   display: flex;
@@ -397,11 +430,9 @@
 }
 @media (max-width: 767px) {
   .burger-menu__socials {
-    position: fixed;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    gap: 32px;
+    right: 20px;
+    top: 55px;
+    gap: 50px;
   }
 }
 .burger-menu__social-link {
@@ -423,38 +454,5 @@
   outline-offset: 4px;
   border-radius: 50%;
 }
-@media (max-width: 767px) {
-  .burger-menu__social-link svg {
-    width: 24px;
-    height: 24px;
-  }
-}
-.burger-menu__bottom-action {
-  display: none;
-  margin-top: auto;
-  padding-top: 32px;
-  border-top: 1px solid #444D56;
-}
-@media (max-width: 767px) {
-  .burger-menu__bottom-action {
-    display: flex;
-  }
-}
-.burger-menu__bottom-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 18px;
-  line-height: 26px;
-  color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.burger-menu__bottom-link svg {
-  width: 24px;
-  height: 24px;
-  margin-left: 16px;
-}
-.burger-menu__bottom-link:hover {
-  color: #d6d2c4;
-}/*# sourceMappingURL=burger-menu.css.map */
+
+/*# sourceMappingURL=burger-menu.css.map */

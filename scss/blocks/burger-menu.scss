@@ -51,13 +51,11 @@
             transform: translate(-50%, -50%);
         }
 
-        // TABLET (768x680 mockup)
         @include vp-1023 {
             width: 768px;
             height: 680px;
         }
 
-        // MOBILE (375x670 mockup)
         @include vp-767 {
             width: 375px;
             height: 670px;
@@ -78,6 +76,9 @@
             padding: 10px 0 32px;
         }
 
+        @include vp-767 {
+            padding: 15px 0 25px;
+        }
     }
 
     // ===== HEADER =====
@@ -98,7 +99,7 @@
 
         @include vp-767 {
             margin-bottom: 40px;
-            padding: 0 16px 20px 16px;
+            padding: 0 15px 10px 20px;
         }
     }
 
@@ -157,6 +158,8 @@
         }
 
         &-icon {
+            display: block;
+            color: $color-white;
             width: 114px;
             height: 26px;
 
@@ -169,24 +172,7 @@
                 width: 88px;
                 height: 20px;
             }
-
         }
-
-        @include vp-767 {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-
-            svg {
-                width: 114px;
-                height: 26px;
-            }
-        }
-    }
-
-    &__logo-icon {
-        display: block;
-        color: $color-white;
     }
 
     &__section-title {
@@ -196,7 +182,6 @@
         padding: 0 322px 0 466px;
         text-align: center;
         flex-grow: 1;
-
 
         @include vp-1023 {
             display: none;
@@ -208,12 +193,8 @@
         align-items: center;
         gap: 32px;
 
-        @include vp-1023 {
-            gap: 8px;
-        }
-
         @include vp-767 {
-            display: none;
+            gap: 16px;
         }
     }
 
@@ -222,21 +203,21 @@
         line-height: 26px;
         color: $color-white;
         text-decoration: none;
+        transition: opacity 0.3s ease;
 
         &:hover {
-            color: $color-ecru-white;
+            opacity: 0.8;
         }
 
         &:focus-visible {
-            color: $color-ecru-white;
-            outline: 1px solid $color-ecru-white;
+            outline: 1px solid $color-white;
             outline-offset: 1px;
             border-radius: 1px;
         }
 
         @include vp-1023 {
-            font-size: 14px;
-            line-height: 20px;
+            font-size: 16px;
+            line-height: 24px;
         }
 
         @include vp-767 {
@@ -245,38 +226,30 @@
     }
 
     &__phone {
-        display: flex; // Hide by default
+        display: flex;
+        align-items: center;
+        gap: 8px;
         font-size: 18px;
         line-height: 26px;
         color: $color-white;
         text-decoration: none;
         white-space: nowrap;
+        transition: opacity 0.3s ease;
 
-        &-text {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-
-            @include vp-1023 {
-                display: none;
-            }
+        &:hover {
+            opacity: 0.8;
         }
 
-        &--icon {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-
-            @include vp-1023 {
-                display: flex;
-            }
+        &:focus-visible {
+            outline: 2px solid $color-white;
+            outline-offset: 2px;
+            border-radius: 2px;
         }
+    }
 
+    &__phone-text {
         @include vp-1023 {
-            font-size: 16px;
-            line-height: 24px;
+            display: none;
         }
     }
 
@@ -284,6 +257,11 @@
         width: 24px;
         height: 24px;
         color: $color-white;
+        display: none;
+
+        @include vp-1023 {
+            display: block;
+        }
     }
 
     // ===== MAIN AREA =====
@@ -303,7 +281,6 @@
         width: 100%;
         padding: 20px 249px;
 
-        // Desktop: 3 колонки
         &__nav--main {
             grid-column: 1;
             grid-row: 1;
@@ -320,51 +297,87 @@
             grid-row: 1;
         }
 
-        // TABLET (768px): 2 колонки, soon перемещается под main
-        // TABLET (768px) - прямые media queries
-        // с миксинами не хочет работать компилятор
-        @media (max-width: 1023px) {
+        @include vp-1023 {
             grid-template-columns: 1fr 1fr;
-            gap: 79px 40px;
+            row-gap: 125px;
+            column-gap: 40px;
             padding: 20px 80px;
 
-            .burger-menu__nav--main {
+            &__nav--main {
                 grid-column: 1;
                 grid-row: 1;
             }
 
-            .burger-menu__nav--soon {
+            &__nav--soon {
                 grid-column: 1;
                 grid-row: 2;
             }
 
-            .burger-menu__nav--secondary {
+            &__nav--secondary {
                 gap: 30px;
                 grid-column: 2;
-                grid-row: 1;
+                grid-row: 1 / span 2;
             }
         }
 
-        // MOBILE (375px): 1 колонка
-        @media (max-width: 767px) {
-            grid-template-columns: 1fr;
+        @include vp-767 {
+            display: flex;
+            flex-direction: column;
             gap: 40px;
             padding: 0 16px;
 
-            &__nav--main,
-            &__nav--soon,
-            &__nav--secondary {
-                grid-column: 1;
-                grid-row: auto;
+            &__nav--main {
+                order: 1;
             }
 
             &__nav--soon {
-                order: 2; // Soon после main на mobile
+                order: 2;
             }
 
             &__nav--secondary {
                 order: 3;
             }
+
+            // Кнопка в самом низу контента на мобильном
+            &__bottom-action {
+                order: 4; // Гарантирует положение после secondary
+                display: block;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid $color-river-bed;
+            }
+        }
+    }
+
+    // ===== MOBILE BOTTOM BUTTON =====
+    &__bottom-action {
+        display: none;
+
+        @include vp-767 {
+            display: block;
+        }
+    }
+
+    &__bottom-link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        font-size: 16px;
+        line-height: 20px;
+        color: $color-white;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+
+        svg {
+            width: 40px;
+            height: 40px;
+            margin-left: 5px;
+        }
+
+        &:hover {
+            color: $color-ecru-white;
         }
     }
 
@@ -372,6 +385,7 @@
         display: flex;
         flex-direction: column;
         min-width: 0;
+        width: 100%;
         gap: 40px;
 
         @include vp-1023 {
@@ -379,16 +393,16 @@
         }
 
         @include vp-767 {
-            gap: 24px;
+            width: 100%;
+            max-width: 100%;
+            gap: 20px;
         }
-
-
     }
 
     &__item {
         text-decoration: none;
         color: $color-white-50;
-        transition: opacity 0.3s ease;
+        transition: color 0.3s ease, opacity 0.3s ease;
 
         &:hover {
             color: $color-white;
@@ -412,11 +426,10 @@
             }
 
             @include vp-767 {
-                font-size: 18px;
-                line-height: 24px;
+                font-size: 16px;
+                line-height: 20px;
             }
         }
-
 
         &--small {
             font-size: 18px;
@@ -432,8 +445,8 @@
             }
 
             @include vp-767 {
-                font-size: 16px;
-                line-height: 22px;
+                font-size: 14px;
+                line-height: 20px;
             }
         }
     }
@@ -447,18 +460,17 @@
         flex-direction: column;
         gap: 58px;
 
-        @media (max-width: 1023px) {
+        @include vp-1023 {
             right: 25px;
             top: 35px;
             gap: 50px;
         }
 
-        @media (max-width: 767px) {
-            position: fixed;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            gap: 32px;
+        @include vp-767 {
+        
+            right: 20px;
+            top: 55px;
+            gap: 50px;
         }
     }
 
@@ -484,44 +496,8 @@
             border-radius: 50%;
         }
 
-        @include vp-767 {
-            svg {
-                width: 24px;
-                height: 24px;
-            }
-        }
+        
     }
 
-    // ===== MOBILE BOTTOM BUTTON =====
-    &__bottom-action {
-        display: none;
-        margin-top: auto;
-        padding-top: 32px;
-        border-top: 1px solid $color-river-bed;
 
-        @include vp-767 {
-            display: block;
-        }
-    }
-
-    &__bottom-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 18px;
-        line-height: 26px;
-        color: $color-white;
-        text-decoration: none;
-        text-transform: uppercase;
-
-        svg {
-            width: 24px;
-            height: 24px;
-            margin-left: 16px;
-        }
-
-        &:hover {
-            color: $color-ecru-white;
-        }
-    }
 }
