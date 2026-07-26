@@ -1,0 +1,527 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+// ===== BURGER MENU =====
+.burger-menu {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    visibility: hidden;
+    pointer-events: none;
+
+    &.is-open {
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    // ===== OVERLAY =====
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+
+        .is-open & {
+            opacity: 1;
+        }
+    }
+
+    // ===== CONTAINER =====
+    &__container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 1728px;
+        height: 800px;
+        background-color: #1D252D;
+        overflow: hidden;
+        transform: translate(-50%, -150%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .is-open & {
+            transform: translate(-50%, -50%);
+        }
+
+        // TABLET (768x680 mockup)
+        @include vp-1023 {
+            width: 768px;
+            height: 680px;
+        }
+
+        // MOBILE (375x670 mockup)
+        @include vp-767 {
+            width: 375px;
+            height: 670px;
+        }
+    }
+
+    // ===== INNER =====
+    &__inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 24px 0 40px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+
+        @include vp-1023 {
+            padding: 10px 0 32px;
+        }
+
+    }
+
+    // ===== HEADER =====
+    &__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 160px;
+        padding: 0 50px 24px 50px;
+        border-bottom: 1px solid $color-river-bed;
+        flex-shrink: 0;
+
+        @include vp-1023 {
+            margin-bottom: 60px;
+            padding: 0 10px 10px 20px;
+        }
+
+        @include vp-767 {
+            margin-bottom: 40px;
+            padding: 0 16px 20px 16px;
+        }
+    }
+
+    &__header-left {
+        display: flex;
+        align-items: center;
+        gap: 90px;
+
+        @include vp-1023 {
+            gap: 85px;
+        }
+    }
+
+    // ===== CLOSE BUTTON =====
+    &__close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        color: $color-white;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-white;
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        @include vp-1023 {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-white;
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        &-icon {
+            width: 114px;
+            height: 26px;
+
+            @include vp-1023 {
+                width: 105px;
+                height: 24px;
+            }
+
+            @include vp-767 {
+                width: 88px;
+                height: 20px;
+            }
+
+        }
+
+        @include vp-767 {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            svg {
+                width: 114px;
+                height: 26px;
+            }
+        }
+    }
+
+    &__logo-icon {
+        display: block;
+        color: $color-white;
+    }
+
+    &__section-title {
+        font-size: 18px;
+        line-height: 26px;
+        color: $color-white;
+        padding: 0 322px 0 466px;
+        text-align: center;
+        flex-grow: 1;
+
+
+        @include vp-1023 {
+            display: none;
+        }
+    }
+
+    &__header-right {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+
+        @include vp-1023 {
+            gap: 8px;
+        }
+
+        @include vp-767 {
+            display: none;
+        }
+    }
+
+    &__link {
+        font-size: 18px;
+        line-height: 26px;
+        color: $color-white;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-ecru-white;
+        }
+
+        &:focus-visible {
+            color: $color-ecru-white;
+            outline: 1px solid $color-ecru-white;
+            outline-offset: 1px;
+            border-radius: 1px;
+        }
+
+        @include vp-1023 {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        @include vp-767 {
+            display: none;
+        }
+    }
+
+    &__phone {
+        display: flex; // Hide by default
+        font-size: 18px;
+        line-height: 26px;
+        color: $color-white;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            @include vp-1023 {
+                display: none;
+            }
+        }
+
+        &--icon {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+
+            @include vp-1023 {
+                display: flex;
+            }
+        }
+
+        @include vp-1023 {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    &__phone-icon {
+        width: 24px;
+        height: 24px;
+        color: $color-white;
+    }
+
+    // ===== MAIN AREA =====
+    &__main {
+        display: flex;
+        flex-grow: 1;
+        min-height: 0;
+        position: relative;
+        align-items: flex-start;
+    }
+
+    // ===== CONTENT =====
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 80px;
+        width: 100%;
+        padding: 20px 249px;
+
+        // Desktop: 3 колонки
+        &__nav--main {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        &__nav--soon {
+            grid-column: 2;
+            grid-row: 1;
+            align-content: start;
+        }
+
+        &__nav--secondary {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        // TABLET (768px): 2 колонки, soon перемещается под main
+        // TABLET (768px) - прямые media queries
+        // с миксинами не хочет работать компилятор
+        @media (max-width: 1023px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 79px 40px;
+            padding: 20px 80px;
+
+            .burger-menu__nav--main {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .burger-menu__nav--soon {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .burger-menu__nav--secondary {
+                gap: 30px;
+                grid-column: 2;
+                grid-row: 1;
+            }
+        }
+
+        // MOBILE (375px): 1 колонка
+        @media (max-width: 767px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 0 16px;
+
+            &__nav--main,
+            &__nav--soon,
+            &__nav--secondary {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            &__nav--soon {
+                order: 2; // Soon после main на mobile
+            }
+
+            &__nav--secondary {
+                order: 3;
+            }
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        gap: 40px;
+
+        @include vp-1023 {
+            gap: 32px;
+        }
+
+        @include vp-767 {
+            gap: 24px;
+        }
+
+
+    }
+
+    &__item {
+        text-decoration: none;
+        color: $color-white-50;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            color: $color-white;
+        }
+
+        &:focus-visible {
+            outline: 1px solid $color-white;
+            outline-offset: 1px;
+            border-radius: 1px;
+        }
+
+        &--large {
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            @include vp-1023 {
+                font-size: 20px;
+                line-height: 26px;
+            }
+
+            @include vp-767 {
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+
+
+        &--small {
+            font-size: 18px;
+            line-height: 26px;
+
+            &:hover {
+                color: $color-white;
+            }
+
+            @include vp-1023 {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            @include vp-767 {
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+    }
+
+    // ===== SOCIALS =====
+    &__socials {
+        position: absolute;
+        right: 54px;
+        top: -45px;
+        display: flex;
+        flex-direction: column;
+        gap: 58px;
+
+        @media (max-width: 1023px) {
+            right: 25px;
+            top: 35px;
+            gap: 50px;
+        }
+
+        @media (max-width: 767px) {
+            position: fixed;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            gap: 32px;
+        }
+    }
+
+    &__social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-abbey;
+        transition: color 0.3s ease;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-white;
+            outline-offset: 4px;
+            border-radius: 50%;
+        }
+
+        @include vp-767 {
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    // ===== MOBILE BOTTOM BUTTON =====
+    &__bottom-action {
+        display: none;
+        margin-top: auto;
+        padding-top: 32px;
+        border-top: 1px solid $color-river-bed;
+
+        @include vp-767 {
+            display: block;
+        }
+    }
+
+    &__bottom-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        line-height: 26px;
+        color: $color-white;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            margin-left: 16px;
+        }
+
+        &:hover {
+            color: $color-ecru-white;
+        }
+    }
+}

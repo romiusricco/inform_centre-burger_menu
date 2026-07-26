@@ -42,451 +42,136 @@
 
     </header>
 
-    <section class="news-controls" aria-label="Управление отображением новостей">
+    <!-- Бургер-меню -->
+    <div class="burger-menu" id="burgerMenu" aria-hidden="true">
+      <div class="burger-menu__overlay"></div>
 
-      <!-- Навигация по проектам -->
-      <nav class="news-controls__nav" aria-label="Фильтр по проектам">
-        <ul class="news-controls__list">
-          <li class="news-controls__item">
-            <button class="news-controls__button news-controls__button--active" type="button"
-              aria-pressed="true">Все</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Sminex</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Малая Ордынка 19</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Ильинка 3/8</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Городская усадьба</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Врубель 4</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Фрунзенская набережная</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Достижение</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Тишинский бульвар</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Вестердам</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Лаврушинский</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Обыденский № 1</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">West Garden</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">Чистые пруды</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">LIFE TIME</button>
-          </li>
-          <li class="news-controls__item">
-            <button class="news-controls__button" type="button" aria-pressed="false">TWIST</button>
-          </li>
-        </ul>
+      <div class="burger-menu__container">
+        <div class="burger-menu__inner">
 
-        <!-- Мобильная кнопка "Все проекты" -->
-        <button class="news-controls__mobile-button" type="button" aria-expanded="false"
-          aria-controls="projects-dropdown">
-          Все проекты
-        </button>
+          <!-- Шапка -->
+          <header class="burger-menu__header">
+            <div class="burger-menu__header-left">
+              <button class="burger-menu__close" type="button" aria-label="Закрыть меню">
+                <svg class="burger-menu__close-icon" width="40" height="40" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-close"></use>
+                </svg>
+              </button>
 
-      </nav>
+              <a href="/" class="burger-menu__logo" aria-label="Переход на главную страницу">
+                <svg class="burger-menu__logo-icon" width="114" height="26" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-header-logo"></use>
+                </svg>
+              </a>
+            </div>
 
-      <!-- Переключатель вида -->
-      <div class="news-controls__view" role="group" aria-label="Переключение вида">
-        <button class="news-controls__view-btn news-controls__view-btn--list news-controls__view-btn--active"
-          type="button" aria-label="Вид списком" aria-pressed="true">
-          <svg class="news-controls__view-icon" width="20" height="20" aria-hidden="true">
-            <use xlink:href="images/sprite.svg#icon-list"></use>
-          </svg>
-          <span class="news-controls__view-text">Списком</span>
-        </button>
-        <button class="news-controls__view-btn news-controls__view-btn--grid" type="button" aria-label="Вид плиткой"
-          aria-pressed="false">
-          <svg class="news-controls__view-icon" width="20" height="20" aria-hidden="true">
-            <use xlink:href="images/sprite.svg#icon-grid"></use>
-          </svg>
-          <span class="news-controls__view-text">Плиткой</span>
-        </button>
+            <span class="burger-menu__section-title">Информационный центр</span>
+
+            <div class="burger-menu__header-right">
+              <a href="#" class="burger-menu__link">Выбрать недвижимость</a>
+
+              <!-- Desktop: Show phone number -->
+              <a href="tel:+74951851408" class="burger-menu__phone burger-menu__phone--desktop"
+                aria-label="Позвонить в компанию">
+                <span class="burger-menu__phone-text">+7 495 185 14 08</span>
+              </a>
+
+              <!-- Tablet & Mobile: Show phone icon -->
+              <a href="tel:+74951851408" class="burger-menu__phone burger-menu__phone--icon"
+                aria-label="Позвонить в компанию">
+                <svg class="burger-menu__phone-icon" width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-phone"></use>
+                </svg>
+              </a>
+            </div>
+
+
+          </header>
+
+          <!-- Основная область: контент + соцсети -->
+          <div class="burger-menu__main">
+
+            <!-- 3 колонки контента -->
+            <div class="burger-menu__content">
+              <!-- Левая колонка: крупные пункты -->
+              <nav class="burger-menu__nav burger-menu__nav--main" aria-label="Основная навигация">
+                <a href="#" class="burger-menu__item burger-menu__item--large">FINE DEVELOPMENT</a>
+                <a href="#" class="burger-menu__item burger-menu__item--large">ОТ ПРОЕКТА К РЕАЛЬНОСТИ</a>
+                <a href="#" class="burger-menu__item burger-menu__item--large">ПОРТФОЛИО</a>
+                <a href="#" class="burger-menu__item burger-menu__item--large">СЛУЖБА КОМФОРТА</a>
+              </nav>
+
+              <!-- На desktop: центральная колонка. На tablet: под main nav -->
+              <div class="burger-menu__nav burger-menu__nav--soon">
+                <span class="burger-menu__item burger-menu__item--large">СКОРО В ПРОДАЖЕ</span>
+                <a href="#" class="burger-menu__item burger-menu__item--small">Фрунзенская набережная</a>
+              </div>
+
+              <!-- Правая колонка: мелкие ссылки -->
+              <nav class="burger-menu__nav burger-menu__nav--secondary" aria-label="Дополнительная навигация">
+                <a href="#" class="burger-menu__item burger-menu__item--small">Работодатель № 1</a>
+                <a href="#" class="burger-menu__item burger-menu__item--small">Информационный центр</a>
+                <a href="#" class="burger-menu__item burger-menu__item--small">Кабинет брокера</a>
+                <a href="#" class="burger-menu__item burger-menu__item--small">Тендеры и сотрудничество</a>
+                <a href="#" class="burger-menu__item burger-menu__item--small">Контакты</a>
+              </nav>
+            </div>
+
+            <div class="burger-menu__bottom-action">
+              <a href="#" class="burger-menu__bottom-link">
+                Выбрать недвижимость
+                <svg class="burger-menu__bottom-icon" width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-next"></use>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Соцсети справа -->
+            <aside class="burger-menu__socials" aria-label="Социальные сети">
+              <a href="#" class="burger-menu__social-link" aria-label="WhatsApp">
+                <svg width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-whatsapp"></use>
+                </svg>
+              </a>
+              <a href="#" class="burger-menu__social-link" aria-label="Telegram">
+                <svg width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-tg"></use>
+                </svg>
+              </a>
+              <a href="#" class="burger-menu__social-link" aria-label="VK">
+                <svg width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-vk"></use>
+                </svg>
+              </a>
+              <a href="#" class="burger-menu__social-link" aria-label="YouTube">
+                <svg width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-youtube"></use>
+                </svg>
+              </a>
+              <a href="#" class="burger-menu__social-link" aria-label="Дзен">
+                <svg width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-dzen"></use>
+                </svg>
+              </a>
+              <a href="#" class="burger-menu__social-link" aria-label="hh.ru">
+                <svg width="24" height="24" aria-hidden="true">
+                  <use xlink:href="images/sprite.svg#icon-hh"></use>
+                </svg>
+              </a>
+            </aside>
+          </div>
+        </div>
       </div>
-
-    </section>
+    </div>
+    <!--section class="news-controls"-->
 
   </div>
 
-  <main class="main">
+  <!--main class="main"-->
 
-    <div class="container">
-      <!-- Секция новостей -->
-      <section class="news" aria-labelledby="news-heading">
-        <h2 class="visually-hidden" id="news-heading">Новости</h2>
 
-        <!-- Список новостей -->
-        <ul class="news__list news__list--list">
-          <li class="news__item">
-            <article class="news__card">
-              <a class="news__card-link" href="#">
-                <div class="news__card-image-wrapper">
-                  <picture class="news__card-picture news__card-picture--list">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/chistiy_prydy_facade-list.jpg 1x, images/news/chistiy_prydy_facade-list@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/chistiy_prydy_facade-list-tablet.jpg 1x, images/news/chistiy_prydy_facade-list-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/chistiy_prydy_facade-list-mobile.jpg 1x, images/news/chistiy_prydy_facade-list-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/chistiy_prydy_facade-list.jpg"
-                      srcset="images/news/chistiy_prydy_facade-list@2x.jpg 2x" width="340" height="220"
-                      alt="Фасадные работы в клубном доме «Чистые пруды»" loading="lazy">
-                  </picture>
-                  <picture class="news__card-picture news__card-picture--grid">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/chistiy_prydy_facade-grid.jpg 1x, images/news/chistiy_prydy_facade-grid@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/chistiy_prydy_facade-grid-tablet.jpg 1x, images/news/chistiy_prydy_facade-grid-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/chistiy_prydy_facade-grid-mobile.jpg 1x, images/news/chistiy_prydy_facade-grid-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/chistiy_prydy_facade-grid.jpg"
-                      srcset="images/news/chistiy_prydy_facade-grid@2x.jpg 2x" width="674" height="360"
-                      alt="Фасадные работы в клубном доме «Чистые пруды»" loading="lazy">
-                  </picture>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--list">
-                  <div class="news__card-content">
-                    <h3 class="news__card-title">Sminex приступил к фасадным работам в клубном доме
-                      &laquo;Чистые Пруды&raquo;</h3>
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-12">12 апреля 2024</time>
-                      <span class="news__card-tag">Чистые пруды</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--grid">
-                  <span class="news__card-tag">Чистые пруды</span>
-                  <div class="news__card-content">
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-12">12 апреля 2024</time>
-                    </div>
-                    <h3 class="news__card-title">Sminex приступил к фасадным работам в клубном доме
-                      &laquo;Чистые Пруды&raquo;</h3>
-                  </div>
-                </div>
-                <p class="news__card-description">Девелопер реставрирует кирпичную кладку наружных стен дома,
-                  построенного в
-                  1915 году по проекту архитектора Отто фон Дессина. Завершить фасадные работы планируется в декабре
-                  этого
-                  года. Клубный дом «Чистые пруды» расположен в глубине тихого Потаповского переулка, в 50 метрах от
-                  знаменитого одноименного пруда. Sminex продолжит бережную реставрацию здания, чтобы сохранить его
-                  изысканную...</p>
-
-              </a>
-            </article>
-          </li>
-
-          <li class="news__item">
-            <article class="news__card">
-              <a class="news__card-link" href="#">
-                <div class="news__card-image-wrapper">
-                  <picture class="news__card-picture news__card-picture--list">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/chistiy_prydy_view-list.jpg 1x, images/news/chistiy_prydy_view-list@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/chistiy_prydy_view-list-tablet.jpg 1x, images/news/chistiy_prydy_view-list-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/chistiy_prydy_view-list-mobile.jpg 1x, images/news/chistiy_prydy_view-list-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/chistiy_prydy_view-list.jpg"
-                      srcset="images/news/chistiy_prydy_view-list@2x.jpg 2x" width="340" height="220"
-                      alt="Чистые пруды — главные места и секреты" loading="lazy">
-                  </picture>
-                  <picture class="news__card-picture news__card-picture--grid">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/chistiy_prydy_view-grid.jpg 1x, images/news/chistiy_prydy_view-grid@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/chistiy_prydy_view-grid-tablet.jpg 1x, images/news/chistiy_prydy_view-grid-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/chistiy_prydy_view-grid-mobile.jpg 1x, images/news/chistiy_prydy_view-grid-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/chistiy_prydy_view-grid.jpg"
-                      srcset="images/news/chistiy_prydy_view-grid@2x.jpg 2x" width="674" height="360"
-                      alt="Чистые пруды — главные места и секреты" loading="lazy">
-                  </picture>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--list">
-                  <div class="news__card-content">
-                    <h3 class="news__card-title">«ДЗЕН». ГЛАВНЫЕ МЕСТА И СЕКРЕТЫ ЧИСТЫХ ПРУДОВ</h3>
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-08">8 апреля 2024</time>
-                      <span class="news__card-tag">Чистые пруды</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--grid">
-                  <span class="news__card-tag">Чистые пруды</span>
-                  <div class="news__card-content">
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-08">8 апреля 2024</time>
-                    </div>
-                    <h3 class="news__card-title">«ДЗЕН». ГЛАВНЫЕ МЕСТА И СЕКРЕТЫ ЧИСТЫХ ПРУДОВ</h3>
-                  </div>
-                </div>
-                <p class="news__card-description">Чистые пруды хранят дух исконной Москвы и&nbsp;при этом обладают всеми
-                  преимуществами мегаполиса. Здесь есть свои тайны,
-                  знаковые места и&nbsp;современные пентхаусы.<br> &bull; Как Чистые пруды стали чистыми и&nbsp;при чём
-                  тут британцы?<br>&bull;
-                  Что Булгаков переместил с&nbsp;Чистых прудов на&nbsp;Патриаршие в&nbsp;романе &laquo;Мастер
-                  и&nbsp;Маргарита&raquo;?<br>&bull; Как доходный дом начала&nbsp;ХХ века получил новое содержание
-                  и&nbsp;стал клубным? ...</p>
-
-              </a>
-            </article>
-          </li>
-
-          <li class="news__item">
-            <article class="news__card">
-              <a class="news__card-link" href="#">
-                <div class="news__card-image-wrapper">
-                  <picture class="news__card-picture news__card-picture--list">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/ostzhenka-list.jpg 1x, images/news/ostzhenka-list@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/ostzhenka-list-tablet.jpg 1x, images/news/ostzhenka-list-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/ostzhenka-list-mobile.jpg 1x, images/news/ostzhenka-list-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/ostzhenka-list.jpg"
-                      srcset="images/news/ostzhenka-list@2x.jpg 2x" width="340" height="220"
-                      alt="Элитная недвижимость Остоженки" loading="lazy">
-                  </picture>
-                  <picture class="news__card-picture news__card-picture--grid">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/ostzhenka-grid.jpg 1x, images/news/ostzhenka-grid@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/ostzhenka-grid-tablet.jpg 1x, images/news/ostzhenka-grid-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/ostzhenka-grid-mobile.jpg 1x, images/news/ostzhenka-grid-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/ostzhenka-grid.jpg"
-                      srcset="images/news/ostzhenka-grid@2x.jpg 2x" width="674" height="360"
-                      alt="Элитная недвижимость Остоженки" loading="lazy">
-                  </picture>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--list">
-                  <div class="news__card-content">
-                    <h3 class="news__card-title">ВЫСОКИЙ СПРОС ПРИВЕЛ К РОСТУ ЦЕН НА ЭЛИТНУЮ НЕДВИЖИМОСТЬ ОСТОЖЕНКИ</h3>
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-04">4 апреля 2024</time>
-                    </div>
-                  </div>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--grid">
-                  <div class="news__card-content">
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-04">4 апреля 2024</time>
-                    </div>
-                    <h3 class="news__card-title">ВЫСОКИЙ СПРОС ПРИВЕЛ К РОСТУ ЦЕН НА ЭЛИТНУЮ НЕДВИЖИМОСТЬ ОСТОЖЕНКИ</h3>
-                  </div>
-                </div>
-                <p class="news__card-description">В&nbsp;2023 году объем предложения элитных квартир в&nbsp;районе
-                  Остоженки составил 29,9&nbsp;тыс.&nbsp;кв.&nbsp;м,
-                  а&nbsp;к&nbsp;концу&nbsp;I квартала 2024-го он&nbsp;уменьшился до&nbsp;26,8&nbsp;кв.&nbsp;м. Сейчас
-                  здесь продаются
-                  четыре строящихся дома. На&nbsp;фоне уменьшения предложения средняя
-                  стоимость&nbsp;кв.&nbsp;м&nbsp;в&nbsp;них
-                  за&nbsp;прошедший год увеличилась на&nbsp;23%&nbsp;&mdash; с&nbsp;2,5 до&nbsp;3,1 млн рублей. Самые
-                  дорогие
-                  лоты&nbsp;&mdash; пентхаусы&nbsp;&mdash; выросли в&nbsp;цене на&nbsp;16%, с&nbsp;4,3
-                  до&nbsp;5&nbsp;млн рублей ...</p>
-
-              </a>
-            </article>
-          </li>
-
-          <li class="news__item">
-            <article class="news__card">
-              <a class="news__card-link" href="#">
-                <div class="news__card-image-wrapper">
-                  <picture class="news__card-picture news__card-picture--list">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/iliinka-yard-garden-list.jpg 1x, images/news/iliinka-yard-garden-list@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/iliinka-yard-garden-list-tablet.jpg 1x, images/news/iliinka-yard-garden-list-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/iliinka-yard-garden-list-mobile.jpg 1x, images/news/iliinka-yard-garden-list-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/iliinka-yard-garden-list.jpg"
-                      srcset="images/news/iliinka-yard-garden-list@2x.jpg 2x" width="340" height="220"
-                      alt="Всесезонный двор-сад Ильинка 3/8" loading="lazy">
-                  </picture>
-                  <picture class="news__card-picture news__card-picture--grid">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/iliinka-yard-garden-grid.jpg 1x, images/news/iliinka-yard-garden-grid@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/iliinka-yard-garden-grid-tablet.jpg 1x, images/news/iliinka-yard-garden-grid-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/iliinka-yard-garden-grid-mobile.jpg 1x, images/news/iliinka-yard-garden-grid-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/iliinka-yard-garden-grid.jpg"
-                      srcset="images/news/iliinka-yard-garden-grid@2x.jpg 2x" width="674" height="360"
-                      alt="Всесезонный двор-сад Ильинка 3/8" loading="lazy">
-                  </picture>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--list">
-                  <div class="news__card-content">
-                    <h3 class="news__card-title">SMINEX СОЗДАЕТ САМЫЙ БЛИЗКИЙ К КРЕМЛЮ ВСЕСЕЗОННЫЙ ДВОР-САД</h3>
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-04">4 апреля 2024</time>
-                      <span class="news__card-tag">Ильинка 3/8</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--grid">
-                  <span class="news__card-tag">Ильинка 3/8</span>
-                  <div class="news__card-content">
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-04">4 апреля 2024</time>
-                    </div>
-                    <h3 class="news__card-title">SMINEX СОЗДАЕТ САМЫЙ БЛИЗКИЙ К КРЕМЛЮ ВСЕСЕЗОННЫЙ ДВОР-САД</h3>
-                  </div>
-                </div>
-                <p class="news__card-description">В&nbsp;коллекции клубных особняков &laquo;Ильинка 3/8&raquo;
-                  благоустройство занимает 1700&nbsp;кв.&nbsp;м. Девелопер
-                  представил концепцию двора-сада, в&nbsp;которой гармонично соединяет исторические детали XIX века
-                  и&nbsp;современные
-                  технологии комфорта. В&nbsp;приватном пространстве жители наслаждаются цветущим круглый год
-                  садом&nbsp;&mdash; всего
-                  в&nbsp;ботанической коллекции больше 6600&nbsp;растений. Территория клубных особняков в&nbsp;160
-                  метрах от&nbsp;Красной
-                  площади начинается ...</p>
-
-              </a>
-            </article>
-          </li>
-
-          <li class="news__item">
-            <article class="news__card">
-              <a class="news__card-link" href="#">
-                <div class="news__card-image-wrapper">
-                  <picture class="news__card-picture news__card-picture--list">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/iliinka-barelief-list.jpg 1x, images/news/iliinka-barelief-list@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/iliinka-barelief-list-tablet.jpg 1x, images/news/iliinka-barelief-list-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/iliinka-barelief-list-mobile.jpg 1x, images/news/iliinka-barelief-list-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/iliinka-barelief-list.jpg"
-                      srcset="images/news/iliinka-barelief-list@2x.jpg 2x" width="340" height="220"
-                      alt="Барельефы «Ильинка 3/8»" loading="lazy">
-                  </picture>
-                  <picture class="news__card-picture news__card-picture--grid">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/iliinka-barelief-grid.jpg 1x, images/news/iliinka-barelief-grid@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/iliinka-barelief-grid-tablet.jpg 1x, images/news/iliinka-barelief-grid-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/iliinka-barelief-grid-mobile.jpg 1x, images/news/iliinka-barelief-grid-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/iliinka-barelief-grid.jpg"
-                      srcset="images/news/iliinka-barelief-grid@2x.jpg 2x" width="674" height="360"
-                      alt="Барельефы «Ильинка 3/8»" loading="lazy">
-                  </picture>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--list">
-                  <div class="news__card-content">
-                    <h3 class="news__card-title">ВИДЕО. ЖИВОПИСНОЕ ВОССОЗДАНИЕ БАРЕЛЬЕФОВ «ИЛЬИНКА 3/8»</h3>
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-03">3 апреля 2024</time>
-                      <span class="news__card-tag">Ильинка 3/8</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--grid">
-                  <span class="news__card-tag">Ильинка 3/8</span>
-                  <div class="news__card-content">
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-03">3 апреля 2024</time>
-                    </div>
-                    <h3 class="news__card-title">ВИДЕО. ЖИВОПИСНОЕ ВОССОЗДАНИЕ БАРЕЛЬЕФОВ «ИЛЬИНКА 3/8»</h3>
-                  </div>
-                </div>
-                <p class="news__card-description">Грифон, пардус, лев и&nbsp;птица Сирин&nbsp;&mdash; существа
-                  из&nbsp;славянской мифологии. Они символизируют величие,
-                  изящество, благородство и&nbsp;радость.Барельефы с&nbsp;этими волшебными созданиями охраняют покой
-                  и&nbsp;благополучие жителей &laquo;Ильинки 3/8&raquo;, создавая неповторимый облик клубных особняков
-                  в&nbsp;160 метрах от&nbsp;Красной площади. Об&nbsp;идее создания артефактов и&nbsp;её&nbsp;воплощении
-                  в&nbsp;камне руками иранских мастеров смотрите в&nbsp;новом видео ...</p>
-
-              </a>
-            </article>
-          </li>
-
-          <li class="news__item">
-            <article class="news__card">
-              <a class="news__card-link" href="#">
-                <div class="news__card-image-wrapper">
-                  <picture class="news__card-picture news__card-picture--list">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/top_5-buildings-list.jpg 1x, images/news/top_5-buildings-list@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/top_5-buildings-list-tablet.jpg 1x, images/news/top_5-buildings-list-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/top_5-buildings-list-mobile.jpg 1x, images/news/top_5-buildings-list-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/top_5-buildings-list.jpg"
-                      srcset="images/news/top_5-buildings-list@2x.jpg 2x" width="340" height="220"
-                      alt="Пять знаковых зданий с эффектными фасадами" loading="lazy">
-                  </picture>
-                  <picture class="news__card-picture news__card-picture--grid">
-                    <source media="(min-width: 1024px)"
-                      srcset="images/news/top_5-buildings-grid.jpg 1x, images/news/top_5-buildings-grid@2x.jpg 2x">
-                    <source media="(min-width: 768px)"
-                      srcset="images/news/top_5-buildings-grid-tablet.jpg 1x, images/news/top_5-buildings-grid-tablet@2x.jpg 2x">
-                    <source media="(max-width: 767px)"
-                      srcset="images/news/top_5-buildings-grid-mobile.jpg 1x, images/news/top_5-buildings-grid-mobile@2x.jpg 2x">
-                    <img class="news__card-image" src="images/news/top_5-buildings-grid.jpg"
-                      srcset="images/news/top_5-buildings-grid@2x.jpg 2x" width="674" height="360"
-                      alt="Пять знаковых зданий с эффектными фасадами" loading="lazy">
-                  </picture>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--list">
-                  <div class="news__card-content">
-                    <h3 class="news__card-title">РБК. Пять зданий с эффектной архитектурой, которые скоро построят в&nbsp;Москве</h3>
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-19">19 апреля 2024</time>
-                    </div>
-                  </div>
-                </div>
-                <div class="news__card-content-wrapper news__card-content-wrapper--grid">
-                  <div class="news__card-content">
-                    <div class="news__card-meta">
-                      <time class="news__card-date" datetime="2024-04-19">19 апреля 2024</time>
-                    </div>
-                    <h3 class="news__card-title">РБК. Пять зданий с эффектной<br>архитектурой, которые скоро построят в Москве</h3>
-
-                  </div>
-                </div>
-                <p class="news__card-description">Редакция &laquo;РБК-Недвижимости&raquo; заглянула в&nbsp;будущее
-                  и&nbsp;выбрала пять новых архитектурных символов,
-                  которые скоро появятся в&nbsp;Москве.<br>&bull; Технопарк со&nbsp;светопрозрачным фасадом
-                  в&nbsp;неофутуристичном стиле<br>&bull; Бионические фасады с&nbsp;окнами, из&nbsp;которых открываются
-                  панорамы Кремля<br>&bull; Музей в&nbsp;стиле необрутализма на&nbsp;территории монастыря<br>&bull;
-                  Школа будущего как из&nbsp;произведений ...</p>
-
-              </a>
-            </article>
-          </li>
-        </ul>
-
-      </section>
-
-    </div>
-  </main>
   <script src="scripts/switcher.js"></script>
+  <script src="scripts/burger-menu.js"></script>
 </body>
 
 </html>
