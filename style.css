@@ -1673,7 +1673,7 @@ body.menu-open {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 0 16px;
+    padding: 0 20px;
   }
   .burger-menu__content__nav--main {
     order: 1;
@@ -1706,6 +1706,7 @@ body.menu-open {
   justify-content: flex-start;
   font-size: 16px;
   line-height: 20px;
+  letter-spacing: 0.02em;
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
