@@ -40,24 +40,27 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        width: 1728px;
+        // КРИТИЧЕСКИ ВАЖНО: width: 100% + max-width предотвращают выход за границы экрана 
+        // на размерах между 1728px и 768px, сохраняя 1728px на больших экранах.
+        width: 100%;
+        max-width: 1728px;
         height: 800px;
         background-color: #1D252D;
         overflow: hidden;
         transform: translate(-50%, -150%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), max-width 0.3s ease, height 0.3s ease;
 
         .is-open & {
             transform: translate(-50%, -50%);
         }
 
         @include vp-1023 {
-            width: 768px;
+            max-width: 768px; // Используем max-width для консистентности
             height: 680px;
         }
 
         @include vp-767 {
-            width: 375px;
+            max-width: 375px;
             height: 670px;
         }
     }
@@ -85,7 +88,7 @@
     &__header {
         position: relative;
         display: grid;
-        grid-template-columns: auto 1fr auto; // Левая часть | Центр (занимает всё свободное место) | Правая часть
+        grid-template-columns: auto 1fr auto;
         align-items: center;
         margin-bottom: 160px;
         padding: 0 50px 20px 50px;
@@ -103,7 +106,7 @@
     }
 
     &__header-left {
-        grid-column: 1; // Жёсткая привязка к первой колонке
+        grid-column: 1;
         display: flex;
         align-items: center;
         gap: 90px;
@@ -176,19 +179,28 @@
     }
 
     &__section-title {
-        grid-column: 2; // Жёсткая привязка к центральной колонке
+        grid-column: 2;
         font-size: 18px;
         line-height: 26px;
         color: $color-white;
         text-align: center;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
-        // КРИТИЧЕСКИ ВАЖНЫЕ свойства для Grid:
-        min-width: 0; // Разрешает блоку сжиматься меньше размера контента
-        white-space: nowrap; // Запрещает перенос строк
-        overflow: hidden; // Скрывает вылезающий текст
-        text-overflow: ellipsis; // Добавляет многоточие, если текст не влезает
+        // Базовое значение для 1728px (нетронуто)
         padding: 0 322px 0 466px;
 
+        // Безопасное уменьшение padding между 1728px и 1023px, 
+        // чтобы заголовок не "распирал" grid и не выталкивал кнопку/телефон
+        @media (max-width: 1400px) {
+            padding: 0 100px;
+        }
+
+        @media (max-width: 1100px) {
+            padding: 0 40px;
+        }
 
         @include vp-1023 {
             display: none;
@@ -196,7 +208,7 @@
     }
 
     &__header-right {
-        grid-column: 3; // Жёсткая привязка к третьей колонке
+        grid-column: 3;
         display: flex;
         align-items: center;
         gap: 32px;
@@ -212,6 +224,7 @@
         color: $color-white;
         text-decoration: none;
         transition: opacity 0.3s ease;
+        white-space: nowrap;
 
         &:hover {
             opacity: 0.8;
@@ -281,16 +294,17 @@
         align-items: flex-start;
     }
 
-
     // ===== CONTENT =====
     &__content {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 80px;
         width: 100%;
-        padding: 20px 249px;
 
-        // Desktop positioning
+        // КРИТИЧЕСКИ ВАЖНО: clamp делает padding плавным между 1728px (249px) и 768px (80px),
+        // не ломая pixel-perfect значения на концах и предотвращая сжатие контента в ноль.
+        padding: 20px clamp(80px, 15vw, 249px);
+
         .burger-menu__nav--main {
             grid-column: 1;
             grid-row: 1;
@@ -311,7 +325,7 @@
             grid-template-columns: 1fr 1fr;
             row-gap: 80px;
             column-gap: 40px;
-            padding: 20px 80px;
+            padding: 20px 80px; // Pixel-perfect для 768px
 
             .burger-menu__nav--secondary {
                 gap: 30px;
@@ -319,13 +333,11 @@
                 grid-row: 1;
             }
 
-
             .burger-menu__nav--main {
                 grid-column: 1;
                 grid-row: 1;
             }
 
-            // Soon справа под main
             .burger-menu__nav--soon {
                 grid-column: 1;
                 grid-row: 2;
@@ -336,7 +348,7 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
-            padding: 0 20px;
+            padding: 0 20px; // Pixel-perfect для 375px
 
             .burger-menu__nav--main {
                 order: 1;
@@ -371,7 +383,6 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-
         font-size: 16px;
         line-height: 20px;
         letter-spacing: 0.02em;
@@ -477,7 +488,6 @@
         }
 
         @include vp-767 {
-
             right: 20px;
             top: 55px;
             gap: 50px;
@@ -505,9 +515,5 @@
             outline-offset: 4px;
             border-radius: 50%;
         }
-
-
     }
-
-
 }
