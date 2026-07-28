@@ -84,13 +84,12 @@
     // ===== HEADER =====
     &__header {
         position: relative;
-        display: flex;
+        display: grid;
+        grid-template-columns: auto 1fr auto; // Левая часть | Центр (занимает всё свободное место) | Правая часть
         align-items: center;
-        justify-content: space-between;
         margin-bottom: 160px;
-        padding: 0 50px 24px 50px;
+        padding: 0 50px 20px 50px;
         border-bottom: 1px solid $color-river-bed;
-        flex-shrink: 0;
 
         @include vp-1023 {
             margin-bottom: 60px;
@@ -104,6 +103,7 @@
     }
 
     &__header-left {
+        grid-column: 1; // Жёсткая привязка к первой колонке
         display: flex;
         align-items: center;
         gap: 90px;
@@ -176,12 +176,19 @@
     }
 
     &__section-title {
+        grid-column: 2; // Жёсткая привязка к центральной колонке
         font-size: 18px;
         line-height: 26px;
         color: $color-white;
-        padding: 0 322px 0 466px;
         text-align: center;
-        flex-grow: 1;
+
+        // КРИТИЧЕСКИ ВАЖНЫЕ свойства для Grid:
+        min-width: 0; // Разрешает блоку сжиматься меньше размера контента
+        white-space: nowrap; // Запрещает перенос строк
+        overflow: hidden; // Скрывает вылезающий текст
+        text-overflow: ellipsis; // Добавляет многоточие, если текст не влезает
+        padding: 0 322px 0 466px;
+
 
         @include vp-1023 {
             display: none;
@@ -189,6 +196,7 @@
     }
 
     &__header-right {
+        grid-column: 3; // Жёсткая привязка к третьей колонке
         display: flex;
         align-items: center;
         gap: 32px;
@@ -311,7 +319,7 @@
                 grid-row: 1;
             }
 
-        
+
             .burger-menu__nav--main {
                 grid-column: 1;
                 grid-row: 1;
@@ -339,15 +347,13 @@
             }
 
             .burger-menu__nav--secondary {
+                gap: 20px;
                 order: 3;
             }
 
             .burger-menu__bottom-action {
                 order: 4;
                 display: block;
-                margin-top: 20px;
-                padding-top: 20px;
-                border-top: 1px solid $color-river-bed;
             }
         }
     }
