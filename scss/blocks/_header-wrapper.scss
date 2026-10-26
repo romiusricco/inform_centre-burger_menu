@@ -1,0 +1,14 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+// Общая обёртка для header и news-controls
+.header-wrapper {
+    padding: 0;
+    position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        background-color: $color-white;
+
+}
